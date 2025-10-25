@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Comments - Lightweight Comment Widget</title>
+    <link rel="stylesheet" href="css/pico.min.css">
+    <style>
+        :root {
+            --pico-primary: #4f46e5;
+            --pico-primary-hover: #4338ca;
+            --pico-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        /* Custom styles not covered by Pico.css */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 0 0 1rem 1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #f1f5f9;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 0.9rem;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        .feature-card {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            background: var(--pico-card-background-color);
+            box-shadow: var(--pico-card-box-shadow);
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="grid">
+                <div>
+                    <h1>Indie Comments</h1>
+                    <p class="lead">A lightweight, privacy-focused comment widget for your website</p>
+                    <p>No tracking, no external dependencies, just clean comments</p>
+                </div>
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li><a href="#demo" role="button" class="contrast">See Demo</a></li>
+                        <li><a href="#integration" role="button" class="secondary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="features" aria-labelledby="features-heading">
+            <div class="container">
+                <h2 id="features-heading">Why Choose Indie Comments?</h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>⚡ Lightweight</h3>
+                        <p>Under 5KB total payload with no external dependencies. Fast loading on any device.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🔒 Privacy First</h3>
+                        <p>No tracking, no analytics, no cookies. Your visitors' data stays private.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>📝 Markdown Support</h3>
+                        <p>Comments support basic Markdown formatting for better readability.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🌐 Responsive</h3>
+                        <p>Looks great on mobile, tablet, and desktop devices.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🔧 Easy Integration</h3>
+                        <p>Simple JavaScript embed in minutes, no complex setup required.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>🔑 Secure</h3>
+                        <p>API keys stay server-side, all requests go through secure proxy.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="widget-demo" id="demo" aria-labelledby="demo-heading">
+            <div class="container">
+                <h2 id="demo-heading">See It In Action</h2>
+                <p>Try out our comment widget below. It works just like it would on your site.</p>
+                
+                <!-- Widget Demo -->
+                <comment-widget thread-id="123" page-title="Demo Page"></comment-widget>
+            </div>
+        </section>
+
+        <section class="integration" id="integration" aria-labelledby="integration-heading">
+            <div class="container">
+                <h2 id="integration-heading">Get Started</h2>
+                <p>Integrate Indie Comments into your site in just a few steps:</p>
+                
+                <h3>1. Include the widget</h3>
+                <pre><code class="code-block">&lt;!-- Include the widget component --&gt;
+&lt;script src="https://yourdomain.com/comment-widget.js"&gt;&lt;/script&gt;</code></pre>
+                
+                <h3>2. Add the widget to your page</h3>
+                <pre><code class="code-block">&lt;!-- Add this where you want comments to appear --&gt;
+&lt;comment-widget thread-id="your-unique-id" page-title="Page Title"&gt;&lt;/comment-widget&gt;</code></pre>
+                
+                <h3>3. Configure your backend</h3>
+                <p>Set up your backend proxy with your API keys (never exposed to frontend).</p>
+
+                <div class="grid" style="margin: 2rem 0;">
+                    <div>
+                        <h3>Admin Access</h3>
+                        <form id="loginForm">
+                            <label for="loginEmail">
+                                Email
+                                <input type="email" id="loginEmail" name="email" required>
+                            </label>
+                            <label for="loginPassword">
+                                Password
+                                <input type="password" id="loginPassword" name="password" required>
+                            </label>
+                            <button type="submit" class="contrast">Login</button>
+                        </form>
+                        <p><a href="register.html">Don't have an account? Register here</a></p>
+                    </div>
+                    <div>
+                        <h3>Quick Actions</h3>
+                        <nav aria-label="Quick actions navigation">
+                            <ul>
+                                <li><a href="admin.html" class="contrast">Admin Panel</a></li>
+                                <li><a href="register.html" class="contrast">Create Account</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>Indie Comments &copy; 2025 | Lightweight, Privacy-Focused Comment System</p>
+    </footer>
+
+    <!-- Load the widget component -->
+    <script src="../widget/src/comment-widget.js"></script>
+    <script src="../widget/src/comment-form.js"></script>
+    <script src="../widget/src/comment-list.js"></script>
+    
+    <!-- Load PicoCSS -->
+    <script>
+        // Dynamically load PicoCSS if not already loaded
+        if (!document.querySelector('link[href*="pico.min.css"]')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '../widget/css/pico.min.css';
+            document.head.appendChild(link);
+        }
+    </script>
+
+    <script>
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            // Get form data
+            const formData = new FormData(e.target);
+            const loginData = {
+                email: formData.get('email'),
+                password: formData.get('password')
+            };
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Logging in...';
+
+            try {
+                const response = await fetch('http://localhost:3001/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    alert('Login successful! Welcome ' + result.user.name);
+                    // Here you could redirect to admin panel or store session
+                    // For now, just show success
+                } else {
+                    alert(result.message || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('Network error. Please try again.');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    </script>
+</body>
+</html>

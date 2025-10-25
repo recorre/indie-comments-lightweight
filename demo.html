@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Comments - Demonstração</title>
+    <link rel="stylesheet" href="widget/css/pico.min.css">
+    <link rel="stylesheet" href="widget/css/widget.css">
+    <style>
+        :root {
+            --pico-primary: #4f46e5;
+            --pico-primary-hover: #4338ca;
+            --pico-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .demo-header p {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .widget-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .widget-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .widget-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .widget-description {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .demo-article {
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--pico-primary);
+        }
+
+        .demo-article h3 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+
+        .demo-article p {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .features-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            background: #f8fafc;
+        }
+
+        .feature-item h4 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .export-demo {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .export-demo h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .export-demo p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .export-btn {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            background: #f9fafb;
+            color: #374151;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .export-btn:hover {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            .widgets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+
+            .demo-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <header class="demo-header">
+            <h1>🎯 Indie Comments</h1>
+            <p>Sistema de comentários leve e privacidade-first para seu website. Veja três widgets diferentes em ação com temas únicos.</p>
+        </header>
+
+        <!-- Widgets Demo -->
+        <section class="widgets-grid">
+            <!-- Widget 1: Default Theme -->
+            <div class="widget-section">
+                <div class="widget-header">
+                    <h2 class="widget-title">📝 Tema Padrão</h2>
+                    <p class="widget-description">Design limpo e moderno com PicoCSS</p>
+                </div>
+
+                <div class="demo-article">
+                    <h3>Como Criar um Blog Estático</h3>
+                    <p>Aprenda a criar um blog estático usando ferramentas modernas como Eleventy ou Hugo. Este guia mostra como configurar um workflow eficiente para publicação de conteúdo.</p>
+                </div>
+
+                <comment-widget
+                    thread-id="demo-article-1"
+                    page-title="Como Criar um Blog Estático"
+                    api-base-url="http://localhost:3001/api">
+                </comment-widget>
+            </div>
+
+            <!-- Widget 2: Dark Theme -->
+            <div class="widget-section">
+                <div class="widget-header">
+                    <h2 class="widget-title">🌙 Tema Dark</h2>
+                    <p class="widget-description">Perfeito para sites com tema escuro</p>
+                </div>
+
+                <div class="demo-article">
+                    <h3>Desenvolvimento Web Moderno</h3>
+                    <p>Explore as melhores práticas para desenvolvimento web moderno, incluindo performance, acessibilidade e experiência do usuário. Técnicas essenciais para criar aplicações web robustas.</p>
+                </div>
+
+                <comment-widget
+                    thread-id="demo-article-2"
+                    page-title="Desenvolvimento Web Moderno"
+                    theme="dark"
+                    api-base-url="http://localhost:3001/api">
+                </comment-widget>
+            </div>
+
+            <!-- Widget 3: Matrix Theme -->
+            <div class="widget-section">
+                <div class="widget-header">
+                    <h2 class="widget-title">💚 Tema Matrix</h2>
+                    <p class="widget-description">Estilo retrô com fonte monospace</p>
+                </div>
+
+                <div class="demo-article">
+                    <h3>Privacidade na Era Digital</h3>
+                    <p>Discussão sobre privacidade online, proteção de dados e como manter sua informação segura na internet. Dicas práticas para navegação mais segura.</p>
+                </div>
+
+                <comment-widget
+                    thread-id="demo-article-3"
+                    page-title="Privacidade na Era Digital"
+                    theme="matrix"
+                    api-base-url="http://localhost:3001/api">
+                </comment-widget>
+            </div>
+
+            <!-- Widget 4: NeoCities Theme -->
+            <div class="widget-section">
+                <div class="widget-header">
+                    <h2 class="widget-title">🌈 Tema NeoCities</h2>
+                    <p class="widget-description">Estilo retrô dos anos 90 com cores vibrantes</p>
+                </div>
+
+                <div class="demo-article">
+                    <h3>Criatividade na Web</h3>
+                    <p>Explore como a criatividade pode transformar a experiência online. Desde designs únicos até interações inovadoras, veja como fazer seu site se destacar na multidão digital.</p>
+                </div>
+
+                <comment-widget
+                    thread-id="demo-article-4"
+                    page-title="Criatividade na Web"
+                    theme="neocities"
+                    api-base-url="http://localhost:3001/api">
+                </comment-widget>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>✨ Características Principais</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>⚡ Leve & Rápido</h4>
+                    <p>Menos de 5KB total, carregamento instantâneo</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔒 Privacidade First</h4>
+                    <p>Sem rastreamento, sem cookies, dados ficam com você</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📝 Markdown</h4>
+                    <p>Suporte completo a formatação Markdown</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎨 Temas</h4>
+                    <p>Múltiplos temas incluídos, facilmente customizáveis</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 Responsivo</h4>
+                    <p>Funciona perfeitamente em desktop e mobile</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔧 Fácil Integração</h4>
+                    <p>Web Components, integração em minutos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Export Demo -->
+        <section class="export-demo">
+            <h3>💾 Funcionalidades de Exportação</h3>
+            <p>Cada widget inclui botões para exportar comentários em JSON. Teste clicando nos botões "Exportar" nos widgets acima!</p>
+            <div class="export-buttons">
+                <button class="export-btn" onclick="alert('Funcionalidade disponível nos widgets acima!')">📤 Exportar Thread Atual</button>
+                <button class="export-btn" onclick="alert('Funcionalidade disponível nos widgets acima!')">📤 Exportar Todas as Threads</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Load widget components -->
+    <script type="module" src="widget/src/comment-list.js"></script>
+    <script type="module" src="widget/src/comment-form.js"></script>
+    <script type="module" src="widget/src/comment-widget.js"></script>
+
+    <footer style="text-align: center; margin-top: 3rem; color: #64748b;">
+        <p>Indie Comments &copy; 2025 | Sistema de comentários leve e privacidade-first</p>
+    </footer>
+</body>
+</html>

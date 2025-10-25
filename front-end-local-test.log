@@ -1,0 +1,10 @@
+admin.html:1 Access to fetch at 'http://localhost:3001/api/admin/comments?limit=25' from origin 'null' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:5173' that is not equal to the supplied origin. Have the server send the header with a valid value.
+admin.html:297  GET http://localhost:3001/api/admin/comments?limit=25 net::ERR_FAILED
+loadComments @ admin.html:297
+(anonymous) @ admin.html:269
+admin.html:313 Error loading comments: TypeError: Failed to fetch
+    at loadComments (admin.html:297:40)
+    at HTMLDocument.<anonymous> (admin.html:269:13)
+loadComments @ admin.html:313
+await in loadComments
+(anonymous) @ admin.html:269

@@ -1,0 +1,29 @@
+index.html:1 Access to fetch at 'http://localhost:3001/api/comments?thread_id=123&status=approved' from origin 'null' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:5173' that is not equal to the supplied origin. Have the server send the header with a valid value.
+comment-widget.js:201  GET http://localhost:3001/api/comments?thread_id=123&status=approved net::ERR_FAILED 200 (OK)
+loadComments @ comment-widget.js:201
+attributeChangedCallback @ comment-widget.js:47
+(anonymous) @ comment-widget.js:229
+comment-widget.js:212 Error loading comments: TypeError: Failed to fetch
+    at CommentWidget.loadComments (comment-widget.js:201:30)
+    at CommentWidget.attributeChangedCallback (comment-widget.js:47:16)
+    at comment-widget.js:229:16
+loadComments @ comment-widget.js:212
+await in loadComments
+attributeChangedCallback @ comment-widget.js:47
+(anonymous) @ comment-widget.js:229
+index.html:1 Access to fetch at 'http://localhost:3001/api/comments?thread_id=123&status=approved' from origin 'null' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:5173' that is not equal to the supplied origin. Have the server send the header with a valid value.
+comment-widget.js:201  GET http://localhost:3001/api/comments?thread_id=123&status=approved net::ERR_FAILED 200 (OK)
+loadComments @ comment-widget.js:201
+loadThread @ comment-widget.js:190
+connectedCallback @ comment-widget.js:38
+(anonymous) @ comment-widget.js:229
+comment-widget.js:212 Error loading comments: TypeError: Failed to fetch
+    at CommentWidget.loadComments (comment-widget.js:201:30)
+    at CommentWidget.loadThread (comment-widget.js:190:10)
+    at CommentWidget.connectedCallback (comment-widget.js:38:10)
+    at comment-widget.js:229:16
+loadComments @ comment-widget.js:212
+await in loadComments
+loadThread @ comment-widget.js:190
+connectedCallback @ comment-widget.js:38
+(anonymous) @ comment-widget.js:229

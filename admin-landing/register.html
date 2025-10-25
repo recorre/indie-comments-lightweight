@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration - Indie Comments</title>
+    <link rel="stylesheet" href="css/pico.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .register-form {
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+        .success-message {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 0.25rem;
+        }
+        .error-message {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="register-form">
+            <h1>User Registration</h1>
+
+            <div id="successMessage" class="success-message">
+                User registered successfully! You can now log in.
+            </div>
+
+            <div id="errorMessage" class="error-message">
+                Registration failed. Please try again.
+            </div>
+
+            <form id="registerForm">
+                <label for="name">
+                    Full Name
+                    <input type="text" id="name" name="name" required>
+                </label>
+
+                <label for="email">
+                    Email Address
+                    <input type="email" id="email" name="email" required>
+                </label>
+
+                <label for="password">
+                    Password
+                    <div style="display: flex; align-items: center;">
+                        <input type="password" id="password" name="password" required minlength="6" style="flex: 1;">
+                        <button type="button" id="togglePassword" style="margin-left: 0.5rem; padding: 0.5rem; background: none; border: 1px solid #ccc; border-radius: 0.25rem; cursor: pointer;">👁️</button>
+                    </div>
+                </label>
+
+                <label for="confirmPassword">
+                    Confirm Password
+                    <div style="display: flex; align-items: center;">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6" style="flex: 1;">
+                        <button type="button" id="toggleConfirmPassword" style="margin-left: 0.5rem; padding: 0.5rem; background: none; border: 1px solid #ccc; border-radius: 0.25rem; cursor: pointer;">👁️</button>
+                    </div>
+                </label>
+
+                <button type="submit" id="submitBtn">Register</button>
+            </form>
+
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="index.html">Back to Home</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Password visibility toggles
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasswordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Get form data
+            const formData = new FormData(registerForm);
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            const userData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                password: password
+            };
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Registering...';
+
+            try {
+                const response = await fetch('http://localhost:3001/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    registerForm.reset();
+                } else {
+                    errorMessage.textContent = result.message || 'Registration failed';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                errorMessage.textContent = 'Network error. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register';
+            }
+        });
+    </script>
+</body>
+</html>

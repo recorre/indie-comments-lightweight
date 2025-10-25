@@ -1,0 +1,84 @@
+/* PicoCSS - Lightweight CSS Framework */
+/* This is a placeholder file. In production, load from CDN: */
+/* https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css */
+
+/* For the purpose of this project, we'll use a minimal version of PicoCSS styles */
+/* Full CSS will be loaded from CDN in HTML */
+
+:root {
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --line-height: 1.5;
+  --font-weight: 400;
+  --border-radius: 0.25rem;
+  --border-width: 1px;
+  --outline-width: 3px;
+  --spacing: 1rem;
+  --z-index: 1;
+}
+
+/* Basic reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+  color: #373c41;
+  background-color: #fff;
+}
+
+/* Simple form styling */
+form {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: calc(var(--spacing) * 0.5);
+  font-weight: bolder;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: calc(var(--spacing) * 0.5) var(--spacing);
+  border: var(--border-width) solid #a9adc0;
+  border-radius: var(--border-radius);
+  outline: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  background-color: #373c41;
+  color: #fff;
+  border: var(--border-width) solid #373c41;
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1.25);
+  font-weight: var(--font-weight);
+}
+
+button:hover {
+  background-color: #1b1d21;
+  border-color: #1b1d21;
+}
+
+/* Basic card styling */
+.card {
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  border: 1px solid #d5d8dc;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightweight Comment Widget Demo</title>
+    <link rel="stylesheet" href="css/pico.min.css">
+    <link rel="stylesheet" href="css/widget.css">
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .demo-content {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Lightweight Comment Widget Demo</h1>
+            <p>A fast, lightweight comment system built with Web Components and PicoCSS.</p>
+        </header>
+
+        <section class="demo-content">
+            <h2>Article Title</h2>
+            <p>This is a sample article. Scroll down to see the comment widget in action.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+        </section>
+
+        <section>
+            <h3>Markdown Support</h3>
+            <p>The comment widget supports basic Markdown formatting:</p>
+            <ul>
+                <li><strong>Bold text</strong>: Use <code>**text**</code> or <code>__text__</code></li>
+                <li><em>Italic text</em>: Use <code>*text*</code> or <code>_text_</code></li>
+                <li><a href="#" target="_blank">Links</a>: Use <code>[text](url)</code></li>
+                <li><code>Inline code</code>: Use <code>`code`</code></li>
+                <li><pre><code>Code blocks</code></pre>: Use <code>```code```</code></li>
+                <li>Headers: Use <code># Header</code>, <code>## Header</code>, etc.</li>
+            </ul>
+        </section>
+
+        <!-- Comment Widget Instance -->
+        <comment-widget thread-id="123" page-title="Sample Article" api-base-url="http://localhost:3001/api"></comment-widget>
+    </main>
+
+    <!-- Load the widget components -->
+    <script type="module" src="src/comment-list.js"></script>
+    <script type="module" src="src/comment-form.js"></script>
+    <script type="module" src="src/comment-widget.js"></script>
+
+    <footer>
+        <p>Lightweight Comment Widget &copy; 2025</p>
+    </footer>
+</body>
+</html>
